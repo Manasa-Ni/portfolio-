@@ -1,0 +1,745 @@
+
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagarajupalli Manasa - AI/ML Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .header:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3.5rem;
+            color: white;
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 4px solid white;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+            z-index: 1;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #667eea;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 25px;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .contact-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 i {
+            color: #667eea;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: #667eea;
+            border: 1px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Projects */
+        .project {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateX(10px);
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .project h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .project p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        /* Experience */
+        .experience-item {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            color: #667eea;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .experience-date {
+            color: #666;
+            font-size: 0.9rem;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+
+        .experience-points {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-points li {
+            color: #666;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-points li::before {
+            content: '▶';
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Education */
+        .education-item {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .education-degree {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .education-school {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .education-grade {
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Certifications */
+        .cert-item {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+
+        .cert-name {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .cert-issuer {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 15px;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            background: #667eea;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Animation */
+        .header {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-img">
+                <!-- Replace 'your-photo.jpg' with your actual photo file -->
+                <img src="your-photo.jpg" alt="Jagarajupalli Manasa" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.fas').style.display='none';" onerror="this.style.display='none'; this.parentElement.querySelector('.fas').style.display='block';">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <h1>
+                <span class="emoji-decoration">🚀</span>
+                Jagarajupalli Manasa
+                <span class="emoji-decoration">💻</span>
+            </h1>
+            <p>🤖 AI/ML Developer & Web Development Enthusiast ✨</p>
+            <div class="contact-links">
+                <a href="mailto:manasa155j@gmail.com">
+                    <i class="fas fa-envelope"></i> 📧 manasa155j@gmail.com
+                </a>
+                <a href="tel:+918217324221">
+                    <i class="fas fa-phone"></i> 📱 +91 82173 24221
+                </a>
+                <a href="#" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i> 📍 Bengaluru, India
+                </a>
+            </div>
+            
+            
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid">
+            <!-- About/Objective -->
+            <div class="card">
+                <h2><i class="fas fa-user-circle"></i> 🌟 About Me</h2>
+                <p>🎓 Detail-oriented and AI-enthusiastic BCA graduate with hands-on experience in machine learning, web development, and prompt engineering. 💡 Skilled in building responsive applications, deploying on cloud platforms, and working with LLMs like ChatGPT. 🚀 Seeking to contribute creativity and real-world solutions in a forward-thinking tech environment.</p>
+            </div>
+
+            <!-- Skills -->
+            <div class="card">
+                <h2><i class="fas fa-code"></i> 💻 Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🐍 Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python 🐍</span>
+                            <span class="skill-tag">Java ☕</span>
+                            <span class="skill-tag">C 🔧</span>
+                            <span class="skill-tag">JavaScript 🌐</span>
+                            <span class="skill-tag">PHP 🐘</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🌐 Web Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML 📄</span>
+                            <span class="skill-tag">CSS 🎨</span>
+                            <span class="skill-tag">JavaScript ⚡</span>
+                            <span class="skill-tag">PHP 🚀</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🤖 AI/ML & Data</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Scikit-learn 🧠</span>
+                            <span class="skill-tag">Pandas 🐼</span>
+                            <span class="skill-tag">NumPy 🔢</span>
+                            <span class="skill-tag">Matplotlib 📊</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🗄️ Database & Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL 🐬</span>
+                            <span class="skill-tag">Git 🔄</span>
+                            <span class="skill-tag">GitHub 🐙</span>
+                            <span class="skill-tag">OpenAI APIs 🤖</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="card">
+            <h2><i class="fas fa-briefcase"></i> 💼 Experience</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">🤖 AI/ML Intern</div>
+                        <div style="color: #666; font-size: 1.1rem;">🏢 UTL Technologies Ltd., Bengaluru</div>
+                    </div>
+                    <div class="experience-date">📅 Feb 2025 – Apr 2025</div>
+                </div>
+                <ul class="experience-points">
+                    <li>🔬 Applied ML techniques to healthcare datasets</li>
+                    <li>🤖 Experimented with LLMs for medical Q&A and note summarization</li>
+                    <li>⚡ Contributed to prompt refinement and fine-tuning sessions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="card">
+            <h2><i class="fas fa-project-diagram"></i> 🚀 Featured Projects</h2>
+            
+            <div class="project">
+                <h3>🥛 Dairy Management System</h3>
+                <p>📱 A comprehensive web application built with PHP, MySQL, HTML, CSS, and JavaScript featuring inventory management, secure login system, and automated invoice generation. 💼</p>
+                <div class="project-links">
+                    <a href="#" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 🌐 Live Demo
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fab fa-github"></i> 📁 GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3>⏰ Pomodoro Timer Application – AI Prompt Generator</h3>
+                <p>🤖 An innovative productivity tool built using OpenAI APIs that allows real-time prompt creation, saving, and editing for various tasks, enhancing workflow efficiency. ⚡</p>
+                <div class="project-links">
+                    <a href="#" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 🌐 Live Demo
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fab fa-github"></i> 📁 GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education & Certifications Grid -->
+        <div class="grid">
+            <div class="card">
+                <h2><i class="fas fa-graduation-cap"></i> 🎓 Education</h2>
+                
+                <div class="education-item">
+                    <div class="education-degree">💻 Bachelor of Computer Applications (BCA)</div>
+                    <div class="education-school">🏫 RJS First Grade College, Bangalore</div>
+                    <div class="education-grade">⭐ CGPA: 9.3/10 (2025)</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">🧪 Intermediate (Bi.P.C)</div>
+                    <div class="education-school">🏫 Sri Chaitanya Junior College, Tirupati</div>
+                    <div class="education-grade">⭐ 92% (2021)</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">📚 SSLC</div>
+                    <div class="education-school">🏫 Udaya Kiran EM High School, Gorantla</div>
+                    <div class="education-grade">⭐ GPA: 10.0 (2019)</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-certificate"></i> 🏆 Certifications</h2>
+                
+                <div class="cert-item">
+                    <div class="cert-name">🤖 AI/ML Engineer</div>
+                    <div class="cert-issuer">🏢 UTL Technologies & NCVET (480 hours, NSQF Level 5)</div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-name">🧠 AI Tools & ChatGPT Workshop</div>
+                    <div class="cert-issuer">🏢 Be10x (June 2025)</div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-name">🐍 Python & Soft Skills</div>
+                    <div class="cert-issuer">🏢 Bhumi + PayPal (April 2025)</div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-name">💼 Workplace Readiness</div>
+                    <div class="cert-issuer">🏢 Magic Bus & S.S. Jondhale College</div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-name">🎯 AI Certificate</div>
+                    <div class="cert-issuer">📅 Issued on 05 July 2025</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="mailto:manasa155j@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" target="_blank" title="Portfolio">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+            <p style="color: #666; margin-top: 20px;">🌟 &copy; 2025 Jagarajupalli Manasa. All rights reserved. ✨</p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add parallax effect to background
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallax = document.body;
+                const speed = scrolled * 0.5;
+                parallax.style.backgroundPositionY = speed + 'px';
+            });
+
+            // Add intersection observer for animation on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            // Observe all cards
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Add click effects to skill tags
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+
+            // Add typing effect to the title
+            const title = document.querySelector('.header h1');
+            const originalText = title.textContent;
+            title.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < originalText.length) {
+                    title.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            setTimeout(typeWriter, 500);
+        });
+    </script>
+</body>
+</html>
